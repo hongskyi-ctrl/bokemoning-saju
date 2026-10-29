@@ -3,95 +3,276 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>복오는아침 | 무료 사주풀이</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>복오는아침 - 사주 계산 테스트</title>
   <style>
     body {
-      margin: 0;
-      background: #fff9ef;
       font-family: "Malgun Gothic", sans-serif;
+      background: #fff9ef;
       color: #44382c;
       text-align: center;
-    }
-    header {
-      padding: 55px 20px 30px;
-      background: linear-gradient(#f7e8bd, #fff9ef);
-    }
-    h1 {
-      font-size: 36px;
-      color: #986b24;
-    }
-    .container {
-      max-width: 480px;
-      margin: auto;
-      padding: 20px;
+      padding: 40px 16px;
     }
     .card {
+      max-width: 440px;
+      margin: auto;
+      padding: 30px;
       background: white;
       border-radius: 20px;
-      padding: 30px 20px;
-      box-shadow: 0 5px 20px #00000010;
     }
-    input, select, button {
-      box-sizing: border-box;
-      width: 100%;
+    input, button {
       padding: 14px;
       margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      font-size: 16px;
+      font-size: 17px;
     }
     button {
-      background: #ad843d;
+      background: #ae843e;
       color: white;
       border: none;
+      border-radius: 10px;
       cursor: pointer;
-      font-weight: bold;
     }
+  
+/* 사주풀이 결과 카드 디자인 */
+.result-section {
+  background: #fffaf2;
+  border: 1px solid #f0e4d2;
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin: 16px 0;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.result-section h3 {
+  color: #a67832;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+
+.result-section p {
+    margin: 0;
+    color: #44382c;
+    white-space: normal;
+    line-height: 1.7;
+    padding-top: 0;
+}
+
+
+.result-section {
+  background: #ffffff;
+  border: 1px solid #f0e4d4;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin: 16px 0;
+  box-shadow: 0 3px 12px rgba(100, 70, 30, 0.05);
+}
+
+.result-section h3 {
+  color: #a87935;
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+
+.result-section p {
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+
   </style>
 </head>
 <body>
-  <header>
+  <div class="card">
     <h1>☀️ 복오는아침</h1>
-    <p>당신의 사주에 담긴 이야기를 만나보세요.</p>
-  </header>
+    <h2>사주 계산 테스트</h2>
+    <p>생년월일을 선택해 주세요.</p>
 
-  <main class="container">
-    <div class="card">
-      <h2>나의 무료 사주풀이</h2>
-      <p>태어난 날을 입력해 주세요.</p>
+    <input type="date" id="birthDate">
+    <p>양력 또는 음력을 선택해 주세요.</p>
+<select id="calendarType">
+  <option value="solar">양력</option>
+  <option value="lunar">음력</option>
+</select>
+<p>음력인 경우 윤달 여부를 선택해 주세요.</p>
+<select id="leapMonth">
+  <option value="false">평달 (윤달 아님)</option>
+  <option value="true">윤달</option>
+</select>
+<p>태어난 지역을 선택해 주세요.</p>
+<select id="birthPlace">
+  <option value="127.8">충북 영동</option>
+  <option value="126.98">서울</option>
+  <option value="129.07">부산</option>
+  <option value="127.38">대전</option>
+  <option value="128.60">대구</option>
+  <option value="126.85">광주</option>
+  <option value="126.71">인천</option>
+  <option value="127.5">기타 지역 (임시 기준)</option>
+</select>
+    <br><p>태어난 시간을 선택해 주세요.</p>
+<select id="birthHour">
+  <option value="">시간 선택</option>
+  <option value="0">오전 0시 (자정)</option>
+  <option value="1">오전 1시</option>
+  <option value="2">오전 2시</option>
+  <option value="3">오전 3시</option>
+  <option value="4">오전 4시</option>
+  <option value="5">오전 5시</option>
+  <option value="6">오전 6시</option>
+  <option value="7">오전 7시</option>
+  <option value="8">오전 8시</option>
+  <option value="9">오전 9시</option>
+  <option value="10">오전 10시</option>
+  <option value="11">오전 11시</option>
+  <option value="12">오후 12시 (정오)</option>
+  <option value="13">오후 1시</option>
+  <option value="14">오후 2시</option>
+  <option value="15">오후 3시</option>
+  <option value="16">오후 4시</option>
+  <option value="17">오후 5시</option>
+  <option value="18">오후 6시</option>
+  <option value="19">오후 7시</option>
+  <option value="20">오후 8시</option>
+  <option value="21">오후 9시</option>
+  <option value="22">오후 10시</option>
+  <option value="23">오후 11시</option>
+</select>
+<p>태어난 분을 선택해 주세요.</p>
+<select id="birthMinute">
+  <option value="0">00분</option>
+  <option value="10">10분</option>
+  <option value="20">20분</option>
+  <option value="30">30분</option>
+  <option value="40">40분</option>
+  <option value="50">50분</option>
+</select>
+    <button onclick="testInput()">입력 확인하기</button>
 
-      <label for="birth">생년월일</label>
-      <input type="date" id="birth">
+    <div id="result" style="white-space: pre-line; line-height: 1.9; background-color: #fff8ec; padding: 20px; border-radius: 15px; margin-top: 25px;"></div>
+   <h3 style="text-align:center; margin-top:25px; color:#8b642e; font-size:20px;">🌈 오행 균형 그래프</h3>
+    <div id="elementChart"></div>
+  </div>
 
-      <label for="calendar">양력 / 음력</label>
-      <select id="calendar">
-        <option value="solar">양력</option>
-        <option value="lunar">음력</option>
-      </select>
+  <script>
+    function testInput() {
+      const date = document.getElementById("birthDate").value;
+      const result = document.getElementById("result");
 
-      <label for="birthtime">태어난 시간</label>
-      <select id="birthtime">
-        <option>모름</option>
-        <option>자시 (23~01시)</option>
-        <option>축시 (01~03시)</option>
-        <option>인시 (03~05시)</option>
-        <option>묘시 (05~07시)</option>
-        <option>진시 (07~09시)</option>
-        <option>사시 (09~11시)</option>
-        <option>오시 (11~13시)</option>
-        <option>미시 (13~15시)</option>
-        <option>신시 (15~17시)</option>
-        <option>유시 (17~19시)</option>
-        <option>술시 (19~21시)</option>
-        <option>해시 (21~23시)</option>
-      </select>
+      if (!date) {
+        result.textContent = "생년월일을 먼저 선택해 주세요.";
+        return;
+      }
 
-      <button onclick="alert('사주 계산 기능은 다음 단계에서 연결합니다.')">
-        내 사주 무료로 보기
-      </button>
-    </div>
-    <p>전통 명리학을 바탕으로 한 재미와 참고용 서비스입니다.</p>
-  </main>
+      const [year, month, day] = date.split("-").map(Number);
+
+const hourValue = document.getElementById("birthHour").value;
+const minuteValue = Number(document.getElementById("birthMinute").value);
+const calendarType = document.getElementById("calendarType").value;
+const isLeap = document.getElementById("leapMonth").value === "true";
+try {
+const saju = window.calculateSaju(
+    year,
+    month,
+    day,
+    hourValue === "" ? null : Number(hourValue),
+    minuteValue,
+    calendarType,
+    isLeap
+);
+const elements = window.countElements(saju);
+const chart = document.getElementById("elementChart");
+chart.innerHTML = "";
+
+const colors = {
+  "목": "#70ad75",
+  "화": "#e98272",
+  "토": "#c9a15d",
+  "금": "#a5a5a5",
+  "수": "#79a8d8"
+};
+
+for (const name of ["목", "화", "토", "금", "수"]) {
+  const count = elements[name];
+
+  const bar = document.createElement("div");
+  bar.style.margin = "12px 0";
+  bar.style.textAlign = "left";
+
+  bar.innerHTML =
+    `<span>${name} (${count}개)</span>
+     <div style="background:#eee; border-radius:8px; height:16px; margin-top:5px;">
+       <div style="background:${colors[name]}; width:${count * 12.5}%; height:16px; border-radius:8px;"></div>
+     </div>`;
+
+  chart.appendChild(bar);
+}
+const descriptions = window.elementDescriptions;
+const mainElement = Object.keys(elements).reduce((a, b) =>
+  elements[a] >= elements[b] ? a : b
+);
+const dayMaster = window.getDayMaster(saju);
+const dayDescription = window.dayMasterDescriptions[dayMaster];
+const wealthDescription = window.wealthDescriptions[dayMaster];
+const careerDescription = window.careerDescriptions[dayMaster];
+const loveDescription = window.loveDescriptions[dayMaster];
+const healthDescription = window.healthDescriptions[dayMaster];
+
+
+result.innerHTML =
+
+"<div style='white-space: normal'>" +
+
+
+
+"<div class='result-section'><h3>🌸 나의 사주팔자</h3><p>" +
+
+    "연주: " + saju.year +
+    " / 월주: " + saju.month +
+    " / 일주: " + saju.day +
+    " / 시주: " + saju.time +
+
+"</p></div><div class='result-section'><h3>🌿 나의 오행 분석</h3><p>" +
+
+"목(木): " + elements["목"] + "개" +
+"<br>화(火): " + elements["화"] + "개" +
+"<br>토(土): " + elements["토"] + "개" +
+"<br>금(金): " + elements["금"] + "개" +
+"<br>수(水): " + elements["수"] + "개" +
+"<br><br>가장 많이 나타난 오행: " + mainElement +
+"<br>" + descriptions[mainElement] +
+
+"</p></div><div class='result-section'><h3>🌸 나의 일간 성향</h3><p>" +
+
+"일간: " + dayMaster +
+"<br>" + dayDescription +
+
+"</p></div><div class='result-section'><h3>💰 나의 재물운</h3><p>" +
+
+wealthDescription +
+
+"</p></div><div class='result-section'><h3>💼 나의 직업운</h3><p>" +
+
+careerDescription +
+
+"</p></div><div class='result-section'><h3>💕 나의 애정운</h3><p>" +
+
+loveDescription +
+
+"</p></div><div class='result-section'><h3>🌿 나의 건강 관리</h3><p>" +
+
+healthDescription +
+"</p></div></div>";
+    } catch (error) {
+   console.error(error);
+   result.textContent = "오류: " + error.message;
+}
+    }
+  </script>
+  <script src="saju-bundle.js"></script>
+  <script src="ohaeng.js"></script>
 </body>
 </html>
