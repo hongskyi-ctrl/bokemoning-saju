@@ -142,14 +142,19 @@
   <option value="23">오후 11시</option>
 </select>
 <p>태어난 분을 선택해 주세요.</p>
-<select id="birthMinute">
-  <option value="0">00분</option>
-  <option value="10">10분</option>
-  <option value="20">20분</option>
-  <option value="30">30분</option>
-  <option value="40">40분</option>
-  <option value="50">50분</option>
-</select>
+
+<select id="birthMinute"></select>
+<script>
+  const minuteSelect = document.getElementById("birthMinute");
+
+  for (let minute = 0; minute < 60; minute++) {
+    const option = document.createElement("option");
+    option.value = minute;
+    option.textContent = String(minute).padStart(2, "0") + "분";
+    minuteSelect.appendChild(option);
+  }
+</script>
+  
     <button onclick="testInput()">입력 확인하기</button>
 
     <div id="result" style="white-space: pre-line; line-height: 1.9; background-color: #fff8ec; padding: 20px; border-radius: 15px; margin-top: 25px;"></div>
